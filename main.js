@@ -6,11 +6,11 @@ var app = express();
 hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine','hbs');
 
-app.use((req,res,next)=>{
-  res.render('maint.hbs',{
-    pageTitle:'Maintanence'
-  });
-})
+// app.use((req,res,next)=>{
+//   res.render('maint.hbs',{
+//     pageTitle:'Maintanence'
+//   });
+// })
 
 app.use(express.static(__dirname + '/dir'));
 
