@@ -24,15 +24,15 @@ hbs.registerHelper('screamIt',(text)=>{
 
 app.get('/',(req,res) => {
   res.render('home.hbs',{
-    pageTitle: 'Home Page',
-    message: 'I love my wife who is Iram Riaz.'
+    message: 'I love my wife who is Iram Riaz.',
+    homeStatus: 'active'
   });
 });
 
 app.get('/about',(req,res) => {
   res.render('about.hbs',{
-    pageTitle: 'About Page',
-    message: 'Welcome to About Me Page'
+    message: 'Welcome to About Me Page',
+    aboutStatus: 'active'
   });
 });
 
