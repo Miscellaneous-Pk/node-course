@@ -1,5 +1,6 @@
 const express = require('express');
 const hbs = require('hbs');
+const logger = require('./logger');
 
 const port = process.env.PORT || 3000;
 var app = express();
@@ -23,7 +24,7 @@ hbs.registerHelper('screamIt',(text)=>{
 })
 
 app.get('/',(req,res) => {
-  res.render('home.hbs',{
+  res.status(200).render('home.hbs',{
     message: 'I love my wife who is Iram Riaz.',
     homeStatus: 'active'
   });
@@ -36,6 +37,27 @@ app.get('/about',(req,res) => {
   });
 });
 
+app.get('/check',(req,res) => {
+  res.status(200).send([
+    {
+    name: 'Qasim',
+    age: 31
+  },
+  {
+    name: 'Hashim',
+    age: 27
+  },
+  {
+    name: 'Hakim',
+    age: 24
+  }
+])
+})
+
+logger.login('qasimali22@hotmail.com','123abc');
+
 app.listen(port,() => {
   console.log(`listening to port ${port}`);
 })
+
+module.exports.app = app;
