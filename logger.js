@@ -11,5 +11,7 @@ module.exports.log = name;
 module.exports.login = (email, password) => {
   // check if user already exists
   db.addUser({email, password});
+  var result = 31;
+  db.pushResult(result);
   // make the user login into the page
 }

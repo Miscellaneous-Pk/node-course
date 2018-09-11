@@ -5,17 +5,23 @@ const app = rewire('../logger');
 
 describe('Logger',() => {
   var db = {
-    addUser : expect.createSpy()
+    addUser : expect.createSpy(),
+    pushResult: expect.createSpy()
   }
 
   app.__set__('db',db);
+  var email = 'qasimali22@hotmail.com';
+  var password = '123abc';
 
   it('should take the arguments of email and password',() => {
-    var email = 'qasimali22@hotmail.com';
-    var password = '123abc';
 
     app.login(email,password);
     expect(db.addUser).toHaveBeenCalledWith({email, password});
 
+  })
+
+  it('should check the response from db is correct', () => {
+    app.login(email,password);
+    expect(db.pushResult).toHaveBeenCalledWith(31);
   })
 })
