@@ -25,33 +25,20 @@ hbs.registerHelper('screamIt',(text)=>{
 
 app.get('/',(req,res) => {
   res.status(200).render('home.hbs',{
-    message: 'I love my wife who is Iram Riaz.',
     homeStatus: 'active'
   });
 });
 
 app.get('/about',(req,res) => {
-  res.render('about.hbs',{
-    message: 'Welcome to About Me Page',
+  res.status(200).render('about.hbs',{
     aboutStatus: 'active'
   });
 });
 
 app.get('/check',(req,res) => {
-  res.status(200).send([
-    {
-    name: 'Qasim',
-    age: 31
-  },
-  {
-    name: 'Hashim',
-    age: 27
-  },
-  {
-    name: 'Hakim',
-    age: 24
-  }
-])
+  res.status(200).render('check',{
+    checkStatus: 'active'
+  })
 })
 
 logger.login('qasimali22@hotmail.com','123abc');
